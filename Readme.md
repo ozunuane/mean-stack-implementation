@@ -6,7 +6,7 @@
   * Connect to the instance through an SSH client.
   * Once in the terminal, update Ubuntu using this command: `sudo apt update`
   * Next, upgrade Ubuntu with `sudo apt upgrade`
-  * Add certificates: 
+  * Add certificates::
 ```
 sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
 
