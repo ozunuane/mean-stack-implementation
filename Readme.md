@@ -228,7 +228,7 @@ app.controller('myCtrl', function($scope, $http) {
 * I solved this problem by upgrading my node version to version, 17.0.0
 * After this I tried to start the server again and it ran successfully.
 
-* Ran a Sudo Reboot Command Hence therwas a changen in IP 
+* Ran a Sudo Reboot Command Hence there was a change in Instance-Public-IP 
 
 ![Project4pix16](https://user-images.githubusercontent.com/74002629/177743041-af433cfa-94af-45ac-a05d-beecdc2b2fcc.PNG)
 
