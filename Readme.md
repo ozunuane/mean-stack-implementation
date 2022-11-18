@@ -12,27 +12,25 @@ sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
 
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 ```
-![Project4pix1](https://user-images.githubusercontent.com/74002629/177740062-bfa83002-6ee8-431a-81d2-0b5517fd470d.PNG)
+![Project4pix1](/img/meanc-cert.png)
 
   * Next we install nodejs with this: `sudo apt install -y nodejs`
   
- ![Project4pix2](https://user-images.githubusercontent.com/74002629/177740077-2135389b-62ec-423f-9a16-95ca7a29ce73.PNG)
+ ![Project4pix2](/img/nodejs.png)
   
 2. ##### Install MongoDB
   * First we add our MongoDB key server with: `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6`
   * Add repository: `echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list`
   * Install MongoDB with the following comand: `sudo apt install -y mongodb`
   
-  ![Project4pix3](https://user-images.githubusercontent.com/74002629/177740109-72186618-747d-433a-9bdc-e4392be0f973.PNG)
   
   * Verify Server is up and running: `sudo systemctl status mongodb`
   
-   ![Project4pix5](https://user-images.githubusercontent.com/74002629/177740147-d4fcae4f-a5e7-4d1a-86e2-7d480b1efd4b.PNG)
+  ![Project4pix3](/img/mongo.png)
   
   * Install npm – Node package manager: `sudo apt install -y npm`
   * Next we install body-parser package to help with processing JSON files passed in requests to the server. Use the following command: `sudo npm install body-parser`
   
-  ![Project4pix7](https://user-images.githubusercontent.com/74002629/177740193-5d033df2-8d50-4c05-9b66-0c23eb6e4875.PNG)
   
   * Next we create the **Books** directory and navigate into it with the following command: `mkdir Books && cd Books` 
   * Inside the Books directory initialize npm project and add a file to it with the following command: `npm init` Then add **sever.js** file with: `vi server.js`
@@ -49,12 +47,11 @@ app.listen(app.get('port'), function() {
     console.log('Server up: http://localhost:' + app.get('port'));
 });
 ```
-![Project4pix9](https://user-images.githubusercontent.com/74002629/177740233-afab3647-3e60-4c6c-beeb-b767b1c5357f.PNG)
+![Project4pix9](img/server.js.png)
 
 3. ##### Install Express and set up routes to the server
  * Express will be used to pass book information to and from our MongoDB database and Mongoose will be used to establish a schema for the database to store data of our book register. To begin installation, type: `sudo npm install express mongoose` and enter.
  
- ![Project4pix10](https://user-images.githubusercontent.com/74002629/177740255-3fefa006-6bf8-4763-ad2e-de35e961312c.PNG)
  
  * while in **Books** folder, create a directory named **apps** and navigate into it with: `mkdir apps && cd apps`
  * Inside **apps**, create a file named routes.js with: `vi routes.js`
@@ -97,8 +94,8 @@ module.exports = function(app) {
   });
 };
  ```
- ![Project4pix11](https://user-images.githubusercontent.com/74002629/177742866-25909219-e92c-4dba-9f51-39937aed721e.PNG)
- 
+
+___ 
  * Also create a folder named **models** in the **apps** folder, then navigate into it: `mkdir models && cd models`
  * Inside **models**, create a file named **book.js** with: `vi book.js`
  * Copy and paste the code below into ‘book.js’
@@ -117,8 +114,7 @@ var bookSchema = mongoose.Schema( {
 var Book = mongoose.model('Book', bookSchema);
 module.exports = mongoose.model('Book', bookSchema);
 ```
-![Project4pix12](https://user-images.githubusercontent.com/74002629/177742884-89cd7741-6b6c-4e07-be4f-ff36547032dd.PNG)
-
+___
 4. ##### Access the routes with AngularJS
  * The final step would be using AngularJS to connect our web page with Express and perform actions on our book register.
  * Navigate back to **Books** directory using: `cd ../..`
